@@ -12,3 +12,8 @@ provider "azurerm" {
     
   }
 }
+
+resource "azurerm_resource_group" "rgs" {
+  name = "rgname"
+  location = "eastus"
+}

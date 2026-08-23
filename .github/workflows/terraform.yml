@@ -29,22 +29,22 @@ jobs:
       # 3. Terraform Format Check
       - name: Terraform Format Check
         run: terraform fmt -check -recursive
-        working-directory: ./environment
+        working-directory: ./DevOps-Practice
 
       # 4. Terraform Init
       - name: Terraform Init
         run: terraform init
-        working-directory: ./environment
+        working-directory: ./DevOps-Practice
 
       # 5. Terraform Validate
       - name: Terraform Validate
         run: terraform validate
-        working-directory: ./environment
+        working-directory: ./DevOps-Practice
 
       # 6. Terraform Plan
       - name: Terraform Plan
         run: terraform plan -out=tfplan
-        working-directory: ./environment
+        working-directory: ./DevOps-Practice
 
       # 7. Upload Plan Artifact
       - name: Upload Plan Artifact
@@ -52,10 +52,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: tfplan
-          path: ./environment/tfplan
+          path: ./DevOps-Practice/tfplan
 
       # 8. Terraform Apply
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
         run: terraform apply -auto-approve tfplan
-        working-directory: ./environment
+        working-directory: ./DevOps-Practice

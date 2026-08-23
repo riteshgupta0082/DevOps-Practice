@@ -17,4 +17,8 @@ resource "azurerm_resource_group" "rgs" {
   name = "rgname"
   location = "eastus"
 }
+resource "azurerm_resource_group" "rg2s" {
+  name = "rgname2"
+  location = "eastus"
+}
 
